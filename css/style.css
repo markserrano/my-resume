@@ -1,6 +1,4 @@
-
-# Create CSS file
-css_content = '''/* Custom Styles for Mark Hadrian Serrano Portfolio */
+/* Custom Styles for Mark Hadrian Serrano Portfolio */
 
 body {
     background: #020617;
@@ -224,15 +222,8 @@ body {
     .timeline-line {
         left: 20px;
     }
-    
+
     .timeline-dot {
         left: 20px;
     }
 }
-'''
-
-# Save CSS file
-with open('/mnt/kimi/output/style.css', 'w', encoding='utf-8') as f:
-    f.write(css_content)
-
-print("✅ css/style.css created successfully")
