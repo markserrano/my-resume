@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mark Hadrian Serrano | IT Professional</title>
+    <meta name="description" content="IT Service Desk Analyst with 5+ years experience in technical support, automation, and system administration.">
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
@@ -11,7 +12,231 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+
+    <style>
+        body {
+            background: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-animate {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #164e63);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.15) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .skill-tag {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-tag:hover::before { left: 100%; }
+        .skill-tag:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            color: #06b6d4;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #06b6d4, #8b5cf6, transparent);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #06b6d4;
+            border-radius: 50%;
+            border: 3px solid #020617;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .typewriter {
+            border-right: 2px solid #06b6d4;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #06b6d4; }
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            animation: orbit 20s linear infinite;
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #06b6d4;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #06b6d4;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        ::selection {
+            background: rgba(6, 182, 212, 0.3);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+            .timeline-dot { left: 20px; }
+        }
+
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
+        }
+
+        .linkedin-badge {
+            background: #0077b5;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+    </style>
+<base target="_blank">
 </head>
 <body class="antialiased">
 
@@ -46,7 +271,7 @@
                     <a href="#contact" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Contact</a>
                 </div>
                 <div class="flex items-center gap-4">
-                    <a href="https://github.com/markhadrian" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:text-white transition-all text-sm font-medium">
+                    <a href="https://github.com/markserrano" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:text-white transition-all text-sm font-medium">
                         <i class="fab fa-github"></i>
                         <span>GitHub</span>
                     </a>
@@ -82,13 +307,13 @@
                         Available for opportunities
                     </div>
                     <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight reveal-text">
-                        Mark Hadrian<br><span class="text-gradient">P. Serrano</span>
+                        Mark Hadrian<br><span class="text-gradient">Serrano</span>
                     </h1>
                     <div class="h-8 md:h-12 reveal-text">
                         <span id="typewriter" class="font-display text-xl md:text-3xl text-gray-400 typewriter"></span>
                     </div>
                     <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed reveal-text">
-                        Dynamic IT Professional with <span class="text-cyan-400 font-semibold counter" data-target="5">0</span>+ years of experience in technical support, automation, web development, and system administration.
+                        Dynamic IT Professional with <span class="text-cyan-400 font-bold text-2xl">5+</span> years of experience in technical support, automation, web development, and system administration.
                     </p>
                     <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4 reveal-text">
                         <a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-1">Get In Touch</a>
@@ -96,7 +321,7 @@
                     </div>
                     <div class="flex items-center gap-6 justify-center lg:justify-start pt-6 reveal-text">
                         <a href="https://www.linkedin.com/in/mark-hadrian-serrano/" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fab fa-linkedin-in text-xl"></i></a>
-                        <a href="https://github.com/markhadrian" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fab fa-github text-xl"></i></a>
+                        <a href="https://github.com/markserrano" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fab fa-github text-xl"></i></a>
                         <a href="mailto:markhadrianserrano@gmail.com" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fas fa-envelope text-xl"></i></a>
                         <a href="tel:09691916125" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fas fa-phone text-xl"></i></a>
                     </div>
@@ -110,12 +335,12 @@
                             <p class="text-gray-400 mb-6">Analyst & Automation Specialist</p>
                             <div class="grid grid-cols-2 gap-4 w-full">
                                 <div class="glass rounded-xl p-4">
-                                    <div class="text-2xl font-bold text-cyan-400 counter" data-target="5">0</div>
-                                    <div class="text-xs text-gray-400">Years Exp.</div>
+                                    <div class="text-3xl font-bold text-cyan-400">5+</div>
+                                    <div class="text-xs text-gray-400 mt-1">Years Exp.</div>
                                 </div>
                                 <div class="glass rounded-xl p-4">
-                                    <div class="text-2xl font-bold text-violet-400 counter" data-target="8">0</div>
-                                    <div class="text-xs text-gray-400">Companies</div>
+                                    <div class="text-3xl font-bold text-violet-400">8</div>
+                                    <div class="text-xs text-gray-400 mt-1">Companies</div>
                                 </div>
                             </div>
                         </div>
@@ -142,7 +367,7 @@
                 <div class="lg:col-span-2 space-y-6">
                     <div class="glass-card rounded-2xl p-8 reveal-text">
                         <p class="text-lg text-gray-300 leading-relaxed mb-6">Dynamic IT professional with over <strong class="text-cyan-400">5 years of experience</strong> in technical support, automation, web development, and system administration. I specialize in troubleshooting complex technical issues, delivering exceptional customer service, and implementing innovative IT solutions that enhance operational efficiency.</p>
-                        <p class="text-lg text-gray-300 leading-relaxed">My expertise spans across enterprise tools like <strong class="text-violet-400">ServiceNow</strong>, <strong class="text-violet-400">Active Directory</strong>, and <strong class="text-violet-400">MS Azure</strong>, combined with hands-on experience in hardware servicing and game development.</p>
+                        <p class="text-lg text-gray-300 leading-relaxed">My expertise spans across enterprise tools like <strong class="text-violet-400">ServiceNow</strong>, <strong class="text-violet-400">Active Directory</strong>, <strong class="text-violet-400">Microsoft Azure</strong>, and <strong class="text-violet-400">Office 365</strong>, combined with hands-on experience in hardware servicing and ITIL-based service management.</p>
                     </div>
                     <div class="grid md:grid-cols-2 gap-6">
                         <div class="glass-card rounded-xl p-6 reveal-text">
@@ -190,9 +415,9 @@
                                 <div class="glass-card rounded-xl p-6 md:ml-auto md:mr-8">
                                     <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold mb-3">Current</span>
                                     <h3 class="font-display text-xl font-bold text-white mb-1">IT Service Desk Analyst</h3>
-                                    <p class="text-violet-400 font-medium mb-2">HCL Tech Philippines</p>
+                                    <p class="text-violet-400 font-medium mb-2">HCLTech Philippines</p>
                                     <p class="text-sm text-gray-500 mb-3">August 2023 – Present</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed">Delivering IT solutions and automation processes to enhance business operations.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Delivering IT solutions and automation processes to enhance business operations. Supporting enterprise-level infrastructure and service delivery.</p>
                                 </div>
                             </div>
                             <div class="hidden md:block"></div>
@@ -207,7 +432,7 @@
                                     <h3 class="font-display text-xl font-bold text-white mb-1">IT Administrator (C-Automation)</h3>
                                     <p class="text-violet-400 font-medium mb-2">Nesoi</p>
                                     <p class="text-sm text-gray-500 mb-3">September 2022 – March 2023</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed">Developed automation strategies to streamline IT processes.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Developed automation strategies to streamline IT processes and improve operational efficiency.</p>
                                 </div>
                             </div>
                         </div>
@@ -220,7 +445,7 @@
                                     <h3 class="font-display text-xl font-bold text-white mb-1">Customer Service Representative II</h3>
                                     <p class="text-violet-400 font-medium mb-2">Telus International Philippines</p>
                                     <p class="text-sm text-gray-500 mb-3">September 2021 – November 2021</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed">Provided exceptional customer support and technical assistance.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Provided exceptional customer support and technical assistance to resolve complex client issues.</p>
                                 </div>
                             </div>
                             <div class="hidden md:block"></div>
@@ -235,7 +460,7 @@
                                     <h3 class="font-display text-xl font-bold text-white mb-1">Chief Technology Officer</h3>
                                     <p class="text-violet-400 font-medium mb-2">Dream PC Build</p>
                                     <p class="text-sm text-gray-500 mb-3">September 2020 – July 2022</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed">Managed web development, system development, technical support, POS setup.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Managed web development, system development, technical support, POS setup, and gateway configurations.</p>
                                 </div>
                             </div>
                         </div>
@@ -248,7 +473,7 @@
                                     <h3 class="font-display text-xl font-bold text-white mb-1">Technical Support Representative</h3>
                                     <p class="text-violet-400 font-medium mb-2">Sitel Group</p>
                                     <p class="text-sm text-gray-500 mb-3">September 2019 – March 2020</p>
-                                    <p class="text-gray-400 text-sm leading-relaxed">Assisted clients with troubleshooting and resolving technical concerns.</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Assisted clients with troubleshooting and resolving complex technical concerns efficiently.</p>
                                 </div>
                             </div>
                             <div class="hidden md:block"></div>
@@ -280,13 +505,62 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 reveal-text">Technical <span class="text-gradient">Skills</span></h2>
-                <p class="text-gray-400 text-lg reveal-text">Technologies and tools I work with</p>
+                <p class="text-gray-400 text-lg reveal-text">Technologies and tools I work with at HCLTech</p>
             </div>
+
+            <!-- HCLTech Skills -->
+            <div class="glass-card rounded-2xl p-8 mb-8 reveal-text border-l-4 border-cyan-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-xl font-bold text-white">Skills for ITSD at HCLTech</h3>
+                        <p class="text-gray-400 text-sm">Current Role Expertise</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Active Directory</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-cloud text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">ServiceNow</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-chart-line text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Nexthink</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-download text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Software Installation</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-ticket-alt text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Ticketing Systems</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-desktop text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">DaaS (Desktop as a Service)</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-violet-400"></i>
+                        <span class="text-gray-300 text-sm">Office 365 Administration</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-violet-400"></i>
+                        <span class="text-gray-300 text-sm">Microsoft Azure</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
                 <div class="glass-card rounded-2xl p-6 reveal-text group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-network-wired text-2xl"></i></div>
                     <h3 class="font-display text-lg font-bold text-white mb-4">IT Service Management</h3>
                     <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">ITIL 4</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">ServiceNow</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Active Directory</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Nexthink</span>
@@ -297,9 +571,9 @@
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-600/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-headset text-2xl"></i></div>
                     <h3 class="font-display text-lg font-bold text-white mb-4">Technical Support</h3>
                     <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Help Desk Support</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Hardware Troubleshooting</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Software Support</span>
-                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Customer Service</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Remote Support</span>
                     </div>
                 </div>
@@ -315,10 +589,10 @@
                 </div>
                 <div class="glass-card rounded-2xl p-6 reveal-text group">
                     <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-robot text-2xl"></i></div>
-                    <h3 class="font-display text-lg font-bold text-white mb-4">Automation</h3>
+                    <h3 class="font-display text-lg font-bold text-white mb-4">Automation & Process</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Process Automation</span>
-                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">IT Solutions</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Lean IT</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Workflow Optimization</span>
                         <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">System Integration</span>
                     </div>
@@ -348,18 +622,110 @@
                 <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 reveal-text">Certifications & <span class="text-gradient">Trainings</span></h2>
                 <p class="text-gray-400 text-lg reveal-text">Professional development and achievements</p>
             </div>
+
+            <!-- LinkedIn Learning Section -->
+            <div class="mb-12">
+                <h3 class="font-display text-2xl font-bold text-white mb-6 flex items-center gap-3 reveal-text">
+                    <i class="fab fa-linkedin text-[#0077b5]"></i>
+                    LinkedIn Learning Certifications
+                    <span class="text-sm font-normal text-gray-400">(Completed 2025)</span>
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Learning ITIL®</h3>
+                            <p class="text-gray-400 text-sm mb-2">IT Service Management Framework</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">IT Help Desk for Beginners</h3>
+                            <p class="text-gray-400 text-sm mb-2">Technical Support Fundamentals</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-400/20 to-purple-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Intro to Service Management with ITIL® 4</h3>
+                            <p class="text-gray-400 text-sm mb-2">Modern Service Management</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Learning Lean IT</h3>
+                            <p class="text-gray-400 text-sm mb-2">Process Optimization & Efficiency</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">ITIL® Foundation 4 First Look</h3>
+                            <p class="text-gray-400 text-sm mb-2">ITIL 4 Foundation Preview</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Certifications -->
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-trophy"></i></div>
                         <div class="inline-block px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-3">Award</div>
                         <h3 class="font-display text-lg font-bold text-white mb-2">Top 1 Performer Q1</h3>
-                        <p class="text-gray-400 text-sm mb-2">Service Desk Analyst</p>
+                        <p class="text-gray-400 text-sm mb-2">Service Desk Analyst - HCLTech</p>
                         <p class="text-cyan-400 text-sm">May 14, 2025</p>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fab fa-google"></i></div>
@@ -369,7 +735,7 @@
                         <p class="text-cyan-400 text-sm">July 2020 – July 2021</p>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-microchip"></i></div>
@@ -379,7 +745,7 @@
                         <p class="text-cyan-400 text-sm">Sep 2015 – Jan 2016</p>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-400/20 to-purple-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-gamepad"></i></div>
@@ -389,7 +755,7 @@
                         <p class="text-cyan-400 text-sm">April 2013</p>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-cyan-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-wifi"></i></div>
@@ -399,7 +765,7 @@
                         <p class="text-cyan-400 text-sm">December 2017</p>
                     </div>
                 </div>
-                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
                     <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
                     <div class="relative z-10">
                         <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-music"></i></div>
@@ -451,7 +817,7 @@
                 </div>
                 <div class="text-center">
                     <p class="text-gray-500 text-sm mb-4">Location</p>
-                    <p class="text-white flex items-center justify-center gap-2"><i class="fas fa-map-marker-alt text-cyan-400"></i>Philippines</p>
+                    <p class="text-white flex items-center justify-center gap-2"><i class="fas fa-map-marker-alt text-cyan-400"></i> Philippines</p>
                 </div>
             </div>
         </div>
@@ -466,13 +832,92 @@
             </div>
             <p class="text-gray-500 text-sm">2023 All rights reserved.</p>
             <div class="flex gap-4">
-                <a href="https://github.com/markhadrian" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://github.com/markserrano" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
                 <a href="https://www.linkedin.com/in/mark-hadrian-serrano/" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
                 <a href="mailto:markhadrianserrano@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fas fa-envelope"></i></a>
             </div>
         </div>
     </footer>
 
-    <script src="js/main.js"></script>
+    <script>
+        // All JavaScript inline
+        gsap.registerPlugin(ScrollTrigger);
+
+        const phrases = ["IT Service Desk Analyst", "Automation Specialist", "Web Developer", "System Administrator"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            let typeSpeed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typewriterElement) typeWriter();
+
+            const revealElements = document.querySelectorAll('.reveal-text');
+            revealElements.forEach((element, index) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        },
+                        delay: index * 0.05
+                    }
+                );
+            });
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    navbar.classList.add('shadow-lg', 'shadow-cyan-500/5');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'shadow-cyan-500/5');
+                }
+            });
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </body>
 </html>
