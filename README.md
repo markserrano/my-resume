@@ -1,6 +1,4 @@
-
-# Create comprehensive README.md
-readme_content = '''# Mark Hadrian P. Serrano - IT Professional Portfolio
+# Mark Hadrian P. Serrano - IT Professional Portfolio
 
 🌐 **Live Demo**: [https://markhadrian.github.io](https://markhadrian.github.io) (Update with your actual URL)
 
@@ -238,15 +236,15 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
-      
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
           path: '.'
-      
+
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
@@ -295,80 +293,3 @@ This project is open source and available under the [MIT License](LICENSE).
 **⭐ Star this repository if you found it helpful!**
 
 Built with ❤️ by Mark Hadrian P. Serrano
-'''
-
-# Save README
-with open('/mnt/kimi/output/README.md', 'w', encoding='utf-8') as f:
-    f.write(readme_content)
-
-print("✅ README.md created successfully")
-
-# Create GitHub Actions workflow file
-workflow_content = '''name: Deploy to GitHub Pages
-
-on:
-  push:
-    branches: [ main, master ]
-  workflow_dispatch:
-
-permissions:
-  contents: read
-  pages: write
-  id-token: write
-
-concurrency:
-  group: "pages"
-  cancel-in-progress: false
-
-jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      
-      - name: Setup Pages
-        uses: actions/configure-pages@v4
-      
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: '.'
-      
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
-'''
-
-# Save workflow file
-with open('/mnt/kimi/output/deploy.yml', 'w', encoding='utf-8') as f:
-    f.write(workflow_content)
-
-print("✅ GitHub Actions workflow created")
-
-# Create CNAME template
-cname_content = '''# Replace with your custom domain (optional)
-# Example: markhadrian.dev
-# Delete this file if using default github.io domain
-'''
-
-with open('/mnt/kimi/output/CNAME', 'w', encoding='utf-8') as f:
-    f.write(cname_content)
-
-print("✅ CNAME template created")
-
-print("\n" + "="*60)
-print("ALL FILES CREATED SUCCESSFULLY!")
-print("="*60)
-print("\nFiles created:")
-print("1. index.html - Main website file")
-print("2. css/style.css - Styles and animations")
-print("3. js/main.js - Interactive functionality")
-print("4. README.md - Complete documentation")
-print("5. deploy.yml - GitHub Actions workflow")
-print("6. CNAME - Custom domain configuration")
-print("\nNext steps: Follow the README.md instructions")
-print("to upload these files to your GitHub repository.")
