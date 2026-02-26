@@ -1,6 +1,4 @@
-
-# Create JavaScript file
-js_content = '''// Main JavaScript for Mark Hadrian Serrano Portfolio
+// Main JavaScript for Mark Hadrian Serrano Portfolio
 
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
@@ -14,7 +12,7 @@ const typewriterElement = document.getElementById('typewriter');
 
 function typeWriter() {
     const currentPhrase = phrases[phraseIndex];
-    
+
     if (isDeleting) {
         typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
         charIndex--;
@@ -22,9 +20,9 @@ function typeWriter() {
         typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
         charIndex++;
     }
-    
+
     let typeSpeed = isDeleting ? 50 : 100;
-    
+
     if (!isDeleting && charIndex === currentPhrase.length) {
         typeSpeed = 2000;
         isDeleting = true;
@@ -33,7 +31,7 @@ function typeWriter() {
         phraseIndex = (phraseIndex + 1) % phrases.length;
         typeSpeed = 500;
     }
-    
+
     setTimeout(typeWriter, typeSpeed);
 }
 
@@ -42,13 +40,13 @@ document.addEventListener('DOMContentLoaded', () => {
     if (typewriterElement) {
         typeWriter();
     }
-    
+
     // Initialize counters
     initCounters();
-    
+
     // Initialize reveal animations
     initRevealAnimations();
-    
+
     // Initialize navigation
     initNavigation();
 });
@@ -62,7 +60,7 @@ function initCounters() {
         const increment = target / (duration / 16);
         let current = 0;
         let hasAnimated = false;
-        
+
         const updateCounter = () => {
             current += increment;
             if (current < target) {
@@ -72,7 +70,7 @@ function initCounters() {
                 counter.textContent = target;
             }
         };
-        
+
         ScrollTrigger.create({
             trigger: counter,
             start: "top 80%",
@@ -116,24 +114,24 @@ function initRevealAnimations() {
 function initNavigation() {
     const navbar = document.getElementById('navbar');
     let lastScroll = 0;
-    
+
     // Navbar scroll effect
     window.addEventListener('scroll', () => {
         const currentScroll = window.pageYOffset;
-        
+
         if (currentScroll > 100) {
             navbar.classList.add('shadow-lg', 'shadow-cyan-500/5');
         } else {
             navbar.classList.remove('shadow-lg', 'shadow-cyan-500/5');
         }
-        
+
         lastScroll = currentScroll;
     });
-    
+
     // Active navigation link
     const sections = document.querySelectorAll('section');
     const navLinks = document.querySelectorAll('.nav-link');
-    
+
     window.addEventListener('scroll', () => {
         let current = '';
         sections.forEach(section => {
@@ -142,7 +140,7 @@ function initNavigation() {
                 current = section.getAttribute('id');
             }
         });
-        
+
         navLinks.forEach(link => {
             link.classList.remove('text-cyan-400');
             if (link.getAttribute('href').slice(1) === current) {
@@ -181,7 +179,7 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
 document.addEventListener('mousemove', (e) => {
     const mouseX = e.clientX / window.innerWidth;
     const mouseY = e.clientY / window.innerHeight;
-    
+
     const orbits = document.querySelectorAll('.orbit');
     orbits.forEach((orbit, index) => {
         const speed = (index + 1) * 20;
@@ -207,10 +205,3 @@ async function fetchGitHubStats(username) {
 console.log('%c Mark Hadrian P. Serrano ', 'background: linear-gradient(135deg, #06b6d4, #8b5cf6); color: white; font-size: 24px; font-weight: bold; padding: 10px; border-radius: 8px;');
 console.log('%c IT Professional Portfolio ', 'color: #06b6d4; font-size: 14px;');
 console.log('%c Contact: markhadrianserrano@gmail.com ', 'color: #8b5cf6; font-size: 12px;');
-'''
-
-# Save JavaScript file
-with open('/mnt/kimi/output/main.js', 'w', encoding='utf-8') as f:
-    f.write(js_content)
-
-print("✅ js/main.js created successfully")
