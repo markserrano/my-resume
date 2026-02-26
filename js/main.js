@@ -1,4 +1,18 @@
 // Main JavaScript for Mark Hadrian Serrano Portfolio
+// 1. Visit Counter (Free)
+- Uses browser localStorage
+- Persists across sessions
+- Starts at 1,247 (you can change this)
+
+// 2. Location Detection (Free)
+- Calls ipapi.co (free service)
+- Returns: "Manila, Philippines" (example)
+- No API key needed
+
+// 3. Recent Visitors (Free)
+- Saved to localStorage
+- Shows last 5 visits
+- Includes time stamp
 
 // Register GSAP ScrollTrigger
 gsap.registerPlugin(ScrollTrigger);
