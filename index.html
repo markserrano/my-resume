@@ -1,0 +1,922 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mark Hadrian Serrano | IT Professional</title>
+    <meta name="description" content="IT Service Desk Analyst with 5+ years experience in technical support, automation, and system administration.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            background: #020617;
+            color: #e2e8f0;
+            overflow-x: hidden;
+            font-family: 'Inter', sans-serif;
+        }
+        .font-display { font-family: 'Space Grotesk', sans-serif; }
+
+        .glass {
+            background: rgba(15, 23, 42, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(16px);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(6, 182, 212, 0.3);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.1);
+        }
+
+        .text-gradient {
+            background: linear-gradient(135deg, #06b6d4 0%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .bg-gradient-animate {
+            background: linear-gradient(-45deg, #0f172a, #1e1b4b, #0f172a, #164e63);
+            background-size: 400% 400%;
+            animation: gradient 15s ease infinite;
+        }
+
+        @keyframes gradient {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .grid-pattern {
+            background-image: radial-gradient(circle at 1px 1px, rgba(6, 182, 212, 0.15) 1px, transparent 0);
+            background-size: 40px 40px;
+        }
+
+        .skill-tag {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(6, 182, 212, 0.2), transparent);
+            transition: left 0.5s;
+        }
+
+        .skill-tag:hover::before { left: 100%; }
+        .skill-tag:hover {
+            border-color: rgba(6, 182, 212, 0.5);
+            color: #06b6d4;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 100%;
+            background: linear-gradient(to bottom, #06b6d4, #8b5cf6, transparent);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 16px;
+            background: #06b6d4;
+            border-radius: 50%;
+            border: 3px solid #020617;
+            box-shadow: 0 0 20px rgba(6, 182, 212, 0.5);
+        }
+
+        .nav-link {
+            position: relative;
+        }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: -4px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: #06b6d4;
+            transition: width 0.3s ease;
+        }
+
+        .nav-link:hover::after { width: 100%; }
+
+        .typewriter {
+            border-right: 2px solid #06b6d4;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { border-color: transparent; }
+            50% { border-color: #06b6d4; }
+        }
+
+        .parallax-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .orbit {
+            position: absolute;
+            border: 1px solid rgba(6, 182, 212, 0.1);
+            border-radius: 50%;
+            animation: orbit 20s linear infinite;
+        }
+
+        @keyframes orbit {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        .orbit-particle {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            background: #06b6d4;
+            border-radius: 50%;
+            box-shadow: 0 0 10px #06b6d4;
+        }
+
+        .animate-float {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+
+        .reveal-text {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .counter {
+            font-variant-numeric: tabular-nums;
+        }
+
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #0f172a;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #334155;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #06b6d4;
+        }
+
+        ::selection {
+            background: rgba(6, 182, 212, 0.3);
+            color: white;
+        }
+
+        @media (max-width: 768px) {
+            .timeline-line { left: 20px; }
+            .timeline-dot { left: 20px; }
+        }
+
+        .cert-card {
+            transition: all 0.3s ease;
+        }
+        .cert-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(6, 182, 212, 0.15);
+        }
+
+        .linkedin-badge {
+            background: #0077b5;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+    </style>
+</head>
+<body class="antialiased">
+
+    <!-- Animated Background -->
+    <div class="parallax-bg">
+        <div class="absolute inset-0 bg-gradient-animate"></div>
+        <div class="absolute inset-0 grid-pattern opacity-30"></div>
+        <div class="absolute top-20 left-20 w-72 h-72 bg-cyan-500/20 rounded-full blur-3xl animate-pulse-slow"></div>
+        <div class="absolute bottom-20 right-20 w-96 h-96 bg-violet-500/20 rounded-full blur-3xl animate-pulse-slow" style="animation-delay: 2s;"></div>
+        <div class="orbit w-96 h-96 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-20">
+            <div class="orbit-particle top-0 left-1/2 -translate-x-1/2 -translate-y-1/2"></div>
+        </div>
+        <div class="orbit w-[500px] h-[500px] top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 opacity-10" style="animation-duration: 30s; animation-direction: reverse;">
+            <div class="orbit-particle top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-violet-500 shadow-violet-500"></div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 w-full z-50 glass border-b border-white/5 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex-shrink-0 flex items-center gap-2">
+                    <div class="w-10 h-10 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-white font-bold text-lg shadow-lg shadow-cyan-500/30">M</div>
+                    <span class="font-display font-bold text-xl tracking-tight text-white">MHS</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Home</a>
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">About</a>
+                    <a href="#experience" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Experience</a>
+                    <a href="#skills" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Skills</a>
+                    <a href="#certifications" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Certifications</a>
+                    <a href="#contact" class="nav-link text-sm font-medium text-gray-300 hover:text-white transition-colors">Contact</a>
+                </div>
+                <div class="flex items-center gap-4">
+                    <a href="https://github.com/markserrano" target="_blank" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 text-gray-300 hover:bg-white/10 hover:text-white transition-all text-sm font-medium">
+                        <i class="fab fa-github"></i>
+                        <span>GitHub</span>
+                    </a>
+                    <a href="mailto:markhadrianserrano@gmail.com" class="hidden sm:flex items-center gap-2 px-4 py-2 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 hover:bg-cyan-500/20 transition-all text-sm font-medium">
+                        <i class="fas fa-envelope"></i>
+                        <span>Hire Me</span>
+                    </a>
+                    <button class="md:hidden text-gray-300 hover:text-white" onclick="toggleMobileMenu()">
+                        <i class="fas fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden glass border-t border-white/5">
+            <div class="px-4 pt-2 pb-6 space-y-1">
+                <a href="#home" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Home</a>
+                <a href="#about" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">About</a>
+                <a href="#experience" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Experience</a>
+                <a href="#skills" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Skills</a>
+                <a href="#certifications" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Certifications</a>
+                <a href="#contact" class="block px-3 py-2 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md">Contact</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid lg:grid-cols-2 gap-12 items-center">
+                <div class="text-center lg:text-left space-y-6">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass text-cyan-400 text-sm font-medium mb-4 reveal-text">
+                        <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                        Available for opportunities
+                    </div>
+                    <h1 class="font-display text-5xl md:text-7xl font-bold leading-tight reveal-text">
+                        Mark Hadrian<br><span class="text-gradient"> Serrano</span>
+                    </h1>
+                    <div class="h-8 md:h-12 reveal-text">
+                        <span id="typewriter" class="font-display text-xl md:text-3xl text-gray-400 typewriter"></span>
+                    </div>
+                    <p class="text-lg text-gray-400 max-w-2xl mx-auto lg:mx-0 leading-relaxed reveal-text">
+                        Dynamic IT Professional with <span class="text-cyan-400 font-bold text-2xl">5+</span> years of experience in technical support, automation, web development, and system administration.
+                    </p>
+                    <div class="flex flex-wrap gap-4 justify-center lg:justify-start pt-4 reveal-text">
+                        <a href="#contact" class="px-8 py-4 rounded-full bg-gradient-to-r from-cyan-500 to-cyan-600 text-white font-semibold hover:shadow-lg hover:shadow-cyan-500/30 transition-all transform hover:-translate-y-1">Get In Touch</a>
+                        <a href="#experience" class="px-8 py-4 rounded-full glass text-white font-semibold hover:bg-white/10 transition-all border border-white/20">View Experience</a>
+                    </div>
+                    <div class="flex items-center gap-6 justify-center lg:justify-start pt-6 reveal-text">
+                        <a href="https://www.linkedin.com/in/mark-hadrian-serrano/" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fab fa-linkedin-in text-xl"></i></a>
+                        <a href="https://github.com/markserrano" target="_blank" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fab fa-github text-xl"></i></a>
+                        <a href="mailto:markhadrianserrano@gmail.com" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fas fa-envelope text-xl"></i></a>
+                        <a href="tel:09691916125" class="w-12 h-12 rounded-full glass flex items-center justify-center text-gray-400 hover:text-cyan-400 hover:border-cyan-400/50 transition-all"><i class="fas fa-phone text-xl"></i></a>
+                    </div>
+                </div>
+                <div class="relative hidden lg:block">
+                    <div class="relative w-full aspect-square max-w-md mx-auto">
+                        <div class="absolute inset-0 bg-gradient-to-br from-cyan-500/20 to-violet-500/20 rounded-3xl blur-2xl animate-pulse-slow"></div>
+                        <div class="relative glass-card rounded-3xl p-8 h-full flex flex-col items-center justify-center text-center animate-float">
+                            <div class="w-32 h-32 rounded-full bg-gradient-to-br from-cyan-400 to-violet-600 flex items-center justify-center text-4xl font-bold text-white mb-6 shadow-2xl">MHS</div>
+                            <h3 class="font-display text-2xl font-bold text-white mb-2">IT Service Desk</h3>
+                            <p class="text-gray-400 mb-6">Analyst & Automation Specialist</p>
+                            <div class="grid grid-cols-2 gap-4 w-full">
+                                <div class="glass rounded-xl p-4">
+                                    <div class="text-3xl font-bold text-cyan-400">5+</div>
+                                    <div class="text-xs text-gray-400 mt-1">Years Exp.</div>
+                                </div>
+                                <div class="glass rounded-xl p-4">
+                                    <div class="text-3xl font-bold text-violet-400">8</div>
+                                    <div class="text-xs text-gray-400 mt-1">Companies</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+            <a href="#about" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fas fa-chevron-down text-2xl"></i></a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-3 gap-12">
+                <div class="lg:col-span-1">
+                    <div class="sticky top-24">
+                        <h2 class="font-display text-4xl md:text-5xl font-bold mb-6 reveal-text">About <span class="text-gradient">Me</span></h2>
+                        <div class="w-20 h-1 bg-gradient-to-r from-cyan-500 to-violet-600 rounded-full mb-6 reveal-text"></div>
+                        <p class="text-gray-400 leading-relaxed reveal-text">Passionate about leveraging technology to solve complex problems and streamline operations.</p>
+                    </div>
+                </div>
+                <div class="lg:col-span-2 space-y-6">
+                    <div class="glass-card rounded-2xl p-8 reveal-text">
+                        <p class="text-lg text-gray-300 leading-relaxed mb-6">Dynamic IT professional with over <strong class="text-cyan-400">5 years of experience</strong> in technical support, automation, web development, and system administration. I specialize in troubleshooting complex technical issues, delivering exceptional customer service, and implementing innovative IT solutions that enhance operational efficiency.</p>
+                        <p class="text-lg text-gray-300 leading-relaxed">My expertise spans across enterprise tools like <strong class="text-violet-400">ServiceNow</strong>, <strong class="text-violet-400">Active Directory</strong>, <strong class="text-violet-400">Microsoft Azure</strong>, and <strong class="text-violet-400">Office 365</strong>, combined with hands-on experience in hardware servicing and ITIL-based service management.</p>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="glass-card rounded-xl p-6 reveal-text">
+                            <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4"><i class="fas fa-map-marker-alt text-xl"></i></div>
+                            <h3 class="font-display text-lg font-semibold text-white mb-2">Location</h3>
+                            <p class="text-gray-400">Philippines</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 reveal-text">
+                            <div class="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4"><i class="fas fa-graduation-cap text-xl"></i></div>
+                            <h3 class="font-display text-lg font-semibold text-white mb-2">Education</h3>
+                            <p class="text-gray-400">Diploma in Information Technology</p>
+                            <p class="text-sm text-gray-500">Shekinah Institute of Management and Technology</p>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 reveal-text">
+                            <div class="w-12 h-12 rounded-lg bg-cyan-500/10 flex items-center justify-center text-cyan-400 mb-4"><i class="fas fa-envelope text-xl"></i></div>
+                            <h3 class="font-display text-lg font-semibold text-white mb-2">Email</h3>
+                            <a href="mailto:markhadrianserrano@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors break-all">markhadrianserrano@gmail.com</a>
+                        </div>
+                        <div class="glass-card rounded-xl p-6 reveal-text">
+                            <div class="w-12 h-12 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400 mb-4"><i class="fas fa-phone text-xl"></i></div>
+                            <h3 class="font-display text-lg font-semibold text-white mb-2">Phone</h3>
+                            <a href="tel:09691916125" class="text-gray-400 hover:text-cyan-400 transition-colors">0969-191-6125</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Timeline -->
+    <section id="experience" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-cyan-900/5 to-transparent"></div>
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 reveal-text">Professional <span class="text-gradient">Experience</span></h2>
+                <p class="text-gray-400 text-lg reveal-text">My career journey in the IT industry</p>
+            </div>
+            <div class="relative">
+                <div class="timeline-line hidden md:block"></div>
+                <div class="space-y-12">
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="md:text-right mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:ml-auto md:mr-8">
+                                    <span class="inline-block px-3 py-1 rounded-full bg-cyan-500/10 text-cyan-400 text-xs font-semibold mb-3">Current</span>
+                                    <h3 class="font-display text-xl font-bold text-white mb-1">IT Service Desk Analyst</h3>
+                                    <p class="text-violet-400 font-medium mb-2">HCLTech Philippines</p>
+                                    <p class="text-sm text-gray-500 mb-3">August 2023 – Present</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Delivering IT solutions and automation processes to enhance business operations. Supporting enterprise-level infrastructure and service delivery.</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6 bg-violet-500 shadow-violet-500"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="hidden md:block"></div>
+                            <div class="mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:mr-auto md:ml-8">
+                                    <h3 class="font-display text-xl font-bold text-white mb-1">IT Administrator (C-Automation)</h3>
+                                    <p class="text-violet-400 font-medium mb-2">Nesoi</p>
+                                    <p class="text-sm text-gray-500 mb-3">September 2022 – March 2023</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Developed automation strategies to streamline IT processes and improve operational efficiency.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="md:text-right mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:ml-auto md:mr-8">
+                                    <h3 class="font-display text-xl font-bold text-white mb-1">Customer Service Representative II</h3>
+                                    <p class="text-violet-400 font-medium mb-2">Telus International Philippines</p>
+                                    <p class="text-sm text-gray-500 mb-3">September 2021 – November 2021</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Provided exceptional customer support and technical assistance to resolve complex client issues.</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6 bg-violet-500 shadow-violet-500"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="hidden md:block"></div>
+                            <div class="mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:mr-auto md:ml-8">
+                                    <h3 class="font-display text-xl font-bold text-white mb-1">Chief Technology Officer</h3>
+                                    <p class="text-violet-400 font-medium mb-2">Dream PC Build</p>
+                                    <p class="text-sm text-gray-500 mb-3">September 2020 – July 2022</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Managed web development, system development, technical support, POS setup, and gateway configurations.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="md:text-right mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:ml-auto md:mr-8">
+                                    <h3 class="font-display text-xl font-bold text-white mb-1">Technical Support Representative</h3>
+                                    <p class="text-violet-400 font-medium mb-2">Sitel Group</p>
+                                    <p class="text-sm text-gray-500 mb-3">September 2019 – March 2020</p>
+                                    <p class="text-gray-400 text-sm leading-relaxed">Assisted clients with troubleshooting and resolving complex technical concerns efficiently.</p>
+                                </div>
+                            </div>
+                            <div class="hidden md:block"></div>
+                        </div>
+                    </div>
+                    <div class="relative reveal-text">
+                        <div class="timeline-dot hidden md:block top-6 bg-violet-500 shadow-violet-500"></div>
+                        <div class="md:grid md:grid-cols-2 md:gap-8 items-center">
+                            <div class="hidden md:block"></div>
+                            <div class="mb-4 md:mb-0">
+                                <div class="glass-card rounded-xl p-6 md:mr-auto md:ml-8">
+                                    <h3 class="font-display text-xl font-bold text-white mb-2">Earlier Roles</h3>
+                                    <ul class="space-y-3 text-sm text-gray-400">
+                                        <li class="flex items-start gap-2"><i class="fas fa-circle text-cyan-400 text-xs mt-1.5"></i><div><span class="text-white font-medium">Admin Staff</span> - Salt & Light (2017)</div></li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-circle text-cyan-400 text-xs mt-1.5"></i><div><span class="text-white font-medium">Production Staff/Admin</span> - Wear His Word (2015-2016)</div></li>
+                                        <li class="flex items-start gap-2"><i class="fas fa-circle text-cyan-400 text-xs mt-1.5"></i><div><span class="text-white font-medium">Sound Engineer / Head Tech</span> - CCF (2014-2019)</div></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-24 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 reveal-text">Technical <span class="text-gradient">Skills</span></h2>
+                <p class="text-gray-400 text-lg reveal-text">Technologies and tools I work with at HCLTech</p>
+            </div>
+
+            <!-- HCLTech Skills -->
+            <div class="glass-card rounded-2xl p-8 mb-8 reveal-text border-l-4 border-cyan-500">
+                <div class="flex items-center gap-3 mb-6">
+                    <div class="w-12 h-12 rounded-xl bg-cyan-500/10 flex items-center justify-center text-cyan-400">
+                        <i class="fas fa-briefcase text-2xl"></i>
+                    </div>
+                    <div>
+                        <h3 class="font-display text-xl font-bold text-white">Skills for ITSD at HCLTech</h3>
+                        <p class="text-gray-400 text-sm">Current Role Expertise</p>
+                    </div>
+                </div>
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Active Directory</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-cloud text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">ServiceNow</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-chart-line text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Nexthink</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-download text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Software Installation</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-ticket-alt text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">Ticketing Systems</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fas fa-desktop text-cyan-400"></i>
+                        <span class="text-gray-300 text-sm">DaaS (Desktop as a Service)</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-violet-400"></i>
+                        <span class="text-gray-300 text-sm">Office 365 Administration</span>
+                    </div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5 hover:bg-white/10 transition-colors">
+                        <i class="fab fa-microsoft text-violet-400"></i>
+                        <span class="text-gray-300 text-sm">Microsoft Azure</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="glass-card rounded-2xl p-6 reveal-text group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-cyan-600/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-network-wired text-2xl"></i></div>
+                    <h3 class="font-display text-lg font-bold text-white mb-4">IT Service Management</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">ITIL 4</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">ServiceNow</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Active Directory</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Nexthink</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">MS Azure</span>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 reveal-text group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-violet-600/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-headset text-2xl"></i></div>
+                    <h3 class="font-display text-lg font-bold text-white mb-4">Technical Support</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Help Desk Support</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Hardware Troubleshooting</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Software Support</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Remote Support</span>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 reveal-text group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-500/20 to-violet-500/20 flex items-center justify-center text-cyan-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-code text-2xl"></i></div>
+                    <h3 class="font-display text-lg font-bold text-white mb-4">Web Development</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">PHP</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">CMS Management</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">POS Systems</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Web Hosting</span>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 reveal-text group">
+                    <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-violet-500/20 to-cyan-500/20 flex items-center justify-center text-violet-400 mb-4 group-hover:scale-110 transition-transform"><i class="fas fa-robot text-2xl"></i></div>
+                    <h3 class="font-display text-lg font-bold text-white mb-4">Automation & Process</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Process Automation</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Lean IT</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">Workflow Optimization</span>
+                        <span class="skill-tag px-3 py-1 rounded-full bg-white/5 border border-white/10 text-sm text-gray-300">System Integration</span>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-12 glass-card rounded-2xl p-8 reveal-text">
+                <h3 class="font-display text-xl font-bold text-white mb-6 text-center">Additional Expertise</h3>
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-cyan-400"></i><span class="text-gray-300 text-sm">Hardware Servicing</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-cyan-400"></i><span class="text-gray-300 text-sm">Game Development</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-cyan-400"></i><span class="text-gray-300 text-sm">Audio Engineering</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-cyan-400"></i><span class="text-gray-300 text-sm">Stage Management</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-violet-400"></i><span class="text-gray-300 text-sm">Google Ads</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-violet-400"></i><span class="text-gray-300 text-sm">Gateway Configuration</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-violet-400"></i><span class="text-gray-300 text-sm">Inventory Management</span></div>
+                    <div class="flex items-center gap-3 p-3 rounded-lg bg-white/5"><i class="fas fa-check-circle text-violet-400"></i><span class="text-gray-300 text-sm">Documentation</span></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certifications -->
+    <section id="certifications" class="py-24 relative overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent via-violet-900/5 to-transparent"></div>
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16">
+                <h2 class="font-display text-4xl md:text-5xl font-bold mb-4 reveal-text">Certifications & <span class="text-gradient">Trainings</span></h2>
+                <p class="text-gray-400 text-lg reveal-text">Professional development and achievements</p>
+            </div>
+
+            <!-- LinkedIn Learning Section -->
+            <div class="mb-12">
+                <h3 class="font-display text-2xl font-bold text-white mb-6 flex items-center gap-3 reveal-text">
+                    <i class="fab fa-linkedin text-[#0077b5]"></i>
+                    LinkedIn Learning Certifications
+                    <span class="text-sm font-normal text-gray-400">(Completed 2025)</span>
+                </h3>
+                <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Learning ITIL®</h3>
+                            <p class="text-gray-400 text-sm mb-2">IT Service Management Framework</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">IT Help Desk for Beginners</h3>
+                            <p class="text-gray-400 text-sm mb-2">Technical Support Fundamentals</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-400/20 to-purple-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Intro to Service Management with ITIL® 4</h3>
+                            <p class="text-gray-400 text-sm mb-2">Modern Service Management</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">Learning Lean IT</h3>
+                            <p class="text-gray-400 text-sm mb-2">Process Optimization & Efficiency</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                        <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-2 mb-3">
+                                <span class="linkedin-badge"><i class="fab fa-linkedin"></i> LinkedIn</span>
+                                <span class="text-xs text-gray-500">Oct 2025</span>
+                            </div>
+                            <h3 class="font-display text-lg font-bold text-white mb-2">ITIL® Foundation 4 First Look</h3>
+                            <p class="text-gray-400 text-sm mb-2">ITIL 4 Foundation Preview</p>
+                            <div class="flex items-center gap-2 text-cyan-400 text-sm">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Completed</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other Certifications -->
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-yellow-400/20 to-orange-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-yellow-400 to-orange-500 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-trophy"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-yellow-400/10 text-yellow-400 text-xs font-semibold mb-3">Award</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Top 1 Performer Q1</h3>
+                        <p class="text-gray-400 text-sm mb-2">Service Desk Analyst - HCLTech</p>
+                        <p class="text-cyan-400 text-sm">May 14, 2025</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-blue-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-blue-500 to-cyan-500 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fab fa-google"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-blue-400/10 text-blue-400 text-xs font-semibold mb-3">Certification</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Google Ads Search</h3>
+                        <p class="text-gray-400 text-sm mb-2">Digital Marketing</p>
+                        <p class="text-cyan-400 text-sm">July 2020 – July 2021</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-cyan-400/20 to-blue-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyan-500 to-blue-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-microchip"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-cyan-400/10 text-cyan-400 text-xs font-semibold mb-3">Technical</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Computer Hardware Servicing</h3>
+                        <p class="text-gray-400 text-sm mb-2">Xavier Technical Training Center</p>
+                        <p class="text-cyan-400 text-sm">Sep 2015 – Jan 2016</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-violet-400/20 to-purple-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-violet-500 to-purple-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-gamepad"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-violet-400/10 text-violet-400 text-xs font-semibold mb-3">Development</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Game Developer Short Course</h3>
+                        <p class="text-gray-400 text-sm mb-2">UP Diliman</p>
+                        <p class="text-cyan-400 text-sm">April 2013</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-green-400/20 to-cyan-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-green-500 to-cyan-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-wifi"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-green-400/10 text-green-400 text-xs font-semibold mb-3">Technology</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Information Breakthrough (IoT)</h3>
+                        <p class="text-gray-400 text-sm mb-2">Shekinah Institute</p>
+                        <p class="text-cyan-400 text-sm">December 2017</p>
+                    </div>
+                </div>
+                <div class="glass-card rounded-2xl p-6 relative overflow-hidden group reveal-text cert-card">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-orange-400/20 to-red-500/20 rounded-full blur-2xl -mr-16 -mt-16 group-hover:scale-150 transition-transform duration-500"></div>
+                    <div class="relative z-10">
+                        <div class="w-12 h-12 rounded-full bg-gradient-to-br from-orange-500 to-red-600 flex items-center justify-center text-white mb-4 shadow-lg"><i class="fas fa-music"></i></div>
+                        <div class="inline-block px-3 py-1 rounded-full bg-orange-400/10 text-orange-400 text-xs font-semibold mb-3">Audio</div>
+                        <h3 class="font-display text-lg font-bold text-white mb-2">Sound Engineer Mixing</h3>
+                        <p class="text-gray-400 text-sm mb-2">East Ave., Quezon City</p>
+                        <p class="text-cyan-400 text-sm">November 2015</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 grid md:grid-cols-2 gap-6 reveal-text">
+                <div class="glass-card rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400"><i class="fab fa-google"></i></div>
+                    <div><h4 class="text-white font-semibold">Google My Business Training</h4><p class="text-sm text-gray-400">July 4, 2020</p></div>
+                </div>
+                <div class="glass-card rounded-xl p-5 flex items-center gap-4">
+                    <div class="w-10 h-10 rounded-lg bg-violet-500/10 flex items-center justify-center text-violet-400"><i class="fas fa-users"></i></div>
+                    <div><h4 class="text-white font-semibold">Global Leadership Center (GLC Level 1 & 2)</h4><p class="text-sm text-gray-400">CCF Cainta, 2015</p></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 relative">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="glass-card rounded-3xl p-8 md:p-12 relative overflow-hidden reveal-text">
+                <div class="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-cyan-500 via-violet-500 to-cyan-500"></div>
+                <div class="text-center mb-10">
+                    <h2 class="font-display text-3xl md:text-4xl font-bold text-white mb-4">Let's Work Together</h2>
+                    <p class="text-gray-400">Ready to bring your IT infrastructure to the next level?</p>
+                </div>
+                <div class="grid md:grid-cols-3 gap-6 mb-10">
+                    <a href="mailto:markhadrianserrano@gmail.com" class="flex flex-col items-center gap-3 p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-cyan-500/10 flex items-center justify-center text-cyan-400 group-hover:scale-110 transition-transform"><i class="fas fa-envelope text-xl"></i></div>
+                        <span class="text-white font-medium">Email</span>
+                        <span class="text-sm text-gray-400 text-center break-all">markhadrianserrano@gmail.com</span>
+                    </a>
+                    <a href="tel:09691916125" class="flex flex-col items-center gap-3 p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-violet-500/10 flex items-center justify-center text-violet-400 group-hover:scale-110 transition-transform"><i class="fas fa-phone text-xl"></i></div>
+                        <span class="text-white font-medium">Phone</span>
+                        <span class="text-sm text-gray-400">0969-191-6125</span>
+                    </a>
+                    <a href="https://www.linkedin.com/in/mark-hadrian-serrano/" target="_blank" class="flex flex-col items-center gap-3 p-6 rounded-xl bg-white/5 hover:bg-white/10 transition-all group">
+                        <div class="w-14 h-14 rounded-full bg-blue-500/10 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform"><i class="fab fa-linkedin text-xl"></i></div>
+                        <span class="text-white font-medium">LinkedIn</span>
+                        <span class="text-sm text-gray-400">Connect with me</span>
+                    </a>
+                </div>
+                <div class="text-center">
+                    <p class="text-gray-500 text-sm mb-4">Location</p>
+                    <p class="text-white flex items-center justify-center gap-2"><i class="fas fa-map-marker-alt text-cyan-400"></i> Philippines</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 border-t border-white/5">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <div class="flex items-center gap-2">
+                <div class="w-8 h-8 rounded-lg bg-gradient-to-br from-cyan-500 to-violet-600 flex items-center justify-center text-white font-bold text-sm">M</div>
+                <span class="font-display font-bold text-gray-400">Mark Hadrian Serrano</span>
+            </div>
+            <p class="text-gray-500 text-sm">2025 All rights reserved.</p>
+            <div class="flex gap-4">
+                <a href="https://github.com/markserrano" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fab fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/mark-hadrian-serrano/" target="_blank" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:markhadrianserrano@gmail.com" class="text-gray-400 hover:text-cyan-400 transition-colors"><i class="fas fa-envelope"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // All JavaScript inline
+        gsap.registerPlugin(ScrollTrigger);
+
+        const phrases = ["IT Service Desk Analyst", "Automation Specialist", "Web Developer", "System Administrator"];
+        let phraseIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        const typewriterElement = document.getElementById('typewriter');
+
+        function typeWriter() {
+            const currentPhrase = phrases[phraseIndex];
+            if (isDeleting) {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex - 1);
+                charIndex--;
+            } else {
+                typewriterElement.textContent = currentPhrase.substring(0, charIndex + 1);
+                charIndex++;
+            }
+            let typeSpeed = isDeleting ? 50 : 100;
+            if (!isDeleting && charIndex === currentPhrase.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                phraseIndex = (phraseIndex + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+            setTimeout(typeWriter, typeSpeed);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            if (typewriterElement) typeWriter();
+
+            const revealElements = document.querySelectorAll('.reveal-text');
+            revealElements.forEach((element, index) => {
+                gsap.fromTo(element, 
+                    { opacity: 0, y: 30 },
+                    {
+                        opacity: 1,
+                        y: 0,
+                        duration: 0.8,
+                        ease: "power3.out",
+                        scrollTrigger: {
+                            trigger: element,
+                            start: "top 85%",
+                            toggleActions: "play none none reverse"
+                        },
+                        delay: index * 0.05
+                    }
+                );
+            });
+
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.pageYOffset > 100) {
+                    navbar.classList.add('shadow-lg', 'shadow-cyan-500/5');
+                } else {
+                    navbar.classList.remove('shadow-lg', 'shadow-cyan-500/5');
+                }
+            });
+        });
+
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    const mobileMenu = document.getElementById('mobile-menu');
+                    if (mobileMenu) mobileMenu.classList.add('hidden');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
